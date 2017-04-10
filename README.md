@@ -30,3 +30,19 @@ For our demo, we plan on having a live demo with the HoloLens including several 
 * Microsoft HoloLens
 * C++/DirectX
 ### Schedule
+* Week 1: Interface with the HoloLens HPU
+  * Write a simple program that utilizes the HPU
+* Week 2: Test Harness
+  * Implementing a sequential ray tracing algorithm
+  * Get collider data from the hololens
+  * Make a reference implementation to test our future parallel code against
+* Week 3: Parallel Ray Tracing
+  * Implement a naively parallel ray tracing algorithm that utilizes the HPU
+* Week 4: Improved Parallel Ray Tracing
+  * Improve efficiency of parallel algorithm to run at near 60 fps at runtime
+* Week 5: Presentation
+  * Prepare demo materials
+    * make a video
+    * make a poster
+    * prepare graphs
+  * Finish testing and debugging
