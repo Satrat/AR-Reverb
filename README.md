@@ -12,6 +12,12 @@ Our plan is to develop a parallel ray tracing algorithm on the HoloLens GPU, and
 ### The Challenge
 
 ### Resources
+* We will be using a Microsoft HoloLens, which we already have access to
+* The GPU/HPU("Holgraphic Processing Unit"). We found the specs for it on [The Register](https://www.theregister.co.uk/2016/08/22/microsoft_hololens_hpu/)
+* We will be writing our code from scratch, but will be using Microsoft's Hololens API and programming in C++
+* We think we can use DirectX or OpenGL to access the HoloLens HPU from our web searches, but we have not tested either so are a bit unsure on this aspect
+* We were inspired by the [VRWorks Audio](https://developer.nvidia.com/vrworks) features in the Nvidia 1080 GPU
+* We found a paper online on [Ray Tracing for a GPU](https://arxiv.org/pdf/1504.03151.pdf) and plan to use it as a reference
 
 ### Goals and Deliverables
 
