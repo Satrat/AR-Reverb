@@ -11,6 +11,7 @@ Our plan is to develop a parallel ray tracing algorithm on the HoloLens GPU, and
 
 ### The Challenge
 The graphics card on the HoloLens, referred to as the Holographic Processing Unit (HPU), is proprietary and not easy to interact with directly. Additionally, parallel raytracing is too computationally expensive to include in real time rendering. We will need to make the algorithm run fast enough to keep the hololens operating in real time.
+
 ### Resources
 * We will be using a Microsoft HoloLens, which we already have access to
 * The GPU/HPU("Holgraphic Processing Unit"). We found the specs for it on [The Register](https://www.theregister.co.uk/2016/08/22/microsoft_hololens_hpu/)
@@ -20,8 +21,13 @@ The graphics card on the HoloLens, referred to as the Holographic Processing Uni
 * We found a paper online on [Ray Tracing for a GPU](https://arxiv.org/pdf/1504.03151.pdf) and plan to use it as a reference
 
 ### Goals and Deliverables
-Finish in time.
+* Main Goal: Implement a ray tracing algorithm for Microsoft Hololens that renders audio in real time at 60fps using the HPU on the device
+* Extra Goal: Expand our above algorithm to also consider the effect of different materials on the sound. For instance stone vs wood vs glass surfaces.
+
+* Successfully interface with the elusive HoloLens HPU
+* Implement a sequential ray
+
 ### Platform Choice
-Microsoft HoloLens
-C++/DirectX
+* Microsoft HoloLens
+* C++/DirectX
 ### Schedule
