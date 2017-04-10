@@ -29,6 +29,7 @@ For our demo, we plan on having a live demo with the HoloLens including several 
 ### Platform Choice
 * Microsoft HoloLens
 * C++/DirectX
+
 ### Schedule
 * Week 1: Interface with the HoloLens HPU
   * Write a simple program that utilizes the HPU
