@@ -9,8 +9,9 @@ Currently, the Microsoft HoloLens utilizes spatial audio to create the illusion 
 Our plan is to develop a parallel ray tracing algorithm on the HoloLens GPU, and use it to trace sounds in the augmented reality environment in real time. The HoloLens is already capable of detecting walls in the room by detecting planes, and we will use this information to model size and shape of the room the user is currently in.
  
 Ray tracing clearly lends itself to parallelism because the calculations for each ray are independent. Each ray bounces off a surface in the room, and a new ray is created from this and so on, so the behavior of a ray is recursive and limited only by setting a maximum recursion depth. Because we would be doing the same calculation on each ray, we can exploit data parallelism. By processing each ray to some max recursive depth, we can then compartmentalize which rays contribute to each possible sound direction, and process each direction in parallel by adding the contributing rays and scaling them accordingly for loudness. 
- 
- ***insert paragraph on how to parallelize ray tracing for a GPU here***
+
+![sound directions](https://www.mattmontag.com/een502/project2/cipic.jpg "Logo Title Text 1")
+All possible directions affecting the user. Each ray contributes to a number of these directions. (Image from mattmontag.com)
 
 ### The Challenge
 The graphics card on the HoloLens, referred to as the Holographic Processing Unit (HPU), is proprietary and not easy to interact with directly. Additionally, parallel raytracing is too computationally expensive to include in real time rendering. We will need to make the algorithm run fast enough to keep the hololens operating in real time.
