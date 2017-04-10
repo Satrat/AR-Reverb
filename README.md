@@ -35,15 +35,22 @@ Microsoft HoloLens and C++/DirectX
 
 ### Schedule
 * Week 1: Interface with the HoloLens HPU
-  * Write a simple program that utilizes the HPU
+  * Proof of concept for interfacing with the HPU
+  * Write a simple pixel processing program that utilizes the HPU in order to gain familiarity with the hardware and how to access it
 * Week 2: Test Harness
-  * Implementing a sequential ray tracing algorithm
-  * Get collider data from the hololens
-  * Make a reference implementation to test our future parallel code against
+  * Implement a sequential ray tracing algorithm
+  * Implement gathering mesh data from rooms using HoloLens API
+  * Record framerate and rendering time data for sequential implementation
+  * Make a reference implementation to test correctness of our future parallel code
 * Week 3: Parallel Ray Tracing
-  * Implement a naively parallel ray tracing algorithm that utilizes the HPU
+  * Implement first iteration of parallel ray tracing algorithm that utilizes the HPU
+  * Parallelize across rays, then across sound directions
+  * Use a small recursion depth to reduce computation
+  * Record frame rate and render time for this implementation
 * Week 4: Improved Parallel Ray Tracing
   * Improve efficiency of parallel algorithm to run at near 60 fps at runtime
+  * Optimize algorithm for data parallelism and cache locality
+  * Try and maximize recursion depth to increase accuracy/detail of algorithm
 * Week 5: Presentation
   * Prepare demo materials
     * make a video
