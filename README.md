@@ -16,6 +16,7 @@ Ray tracing clearly lends itself to parallelism because the calculations for eac
 
 ### The Challenge
 Since the ray traces are independent of one another and all the instructions will remain constant, we can exploit data parallelism with coherent execution. However, we will need to maintain the 60 frames per second render time the HoloLens requires to maintain its usability. Since parallel ray tracing is still a computationally expensive task, we will need to make optimizations to make the program run in real time.
+
 The HoloLens’ graphics card, the HPU (Holographic Processing Unit) is proprietary hardware and is not easy to interact with directly. The HoloLens is also a mobile computer, meaning its specifications are relatively low. It features the HPU for processing camera and sensory data, as well as an Intel Cherry Trail SoC with its own integrated GPU, but much of the system’s compute power is already being used to process and update the mesh of the room.
 
 ### Resources
