@@ -1,7 +1,7 @@
 ## Project Proposal
 
 ### Summary
-We will raytrace sounds in real space using the Microsoft HoloLens' wall detection to create physically accurate audio that is response to different room environments.
+We will raytrace sounds in real space using the Microsoft HoloLens' wall detection in order to create physically accurate audio that is responsive to different room environments.
 
 ### Background
 Currently, the Microsoft HoloLens utilizes spatial audio to create the illusion that sounds are coming from particular places in the augmented reality environment. However, the HoloLens does not take into account any properties of the room during audio processing. The size and shape of a room can significantly influence sound, and taking these parameters into consideration can improve imersion in an augmented reality environment. 
