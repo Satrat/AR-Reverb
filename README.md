@@ -27,8 +27,7 @@ Our main goal is to implement a ray tracing algorithm for Microsoft Hololens tha
 For our demo, we plan on having a live demo with the HoloLens including several Holographic sound sources. Additionally, because the full effect of our project will have more impact when comparing different rooms, we will also have a video showing the effects in rooms of different sizes and shapes. We will also include a graph comparing rendering times and frame rate to a sequential ray tracing algorithm
 
 ### Platform Choice
-* Microsoft HoloLens
-* C++/DirectX
+Microsoft HoloLens and C++/DirectX
 
 ### Schedule
 * Week 1: Interface with the HoloLens HPU
