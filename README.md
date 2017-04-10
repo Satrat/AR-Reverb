@@ -2,6 +2,7 @@
 
 ### Summary
 Currently, the Microsoft HoloLens spatializes sound based only on position relative to the source of the sound. We will raytrace sounds in real space using the Microsoft HoloLens' wall detection to create physically accurate audio.
+
 ### Background
 Currently, the Microsoft HoloLens utilizes spatial audio to create the illusion that sounds are coming from particular places in the augmented reality environment. However, the HoloLens does not take into account any properties of the room during audio processing. The size and shape of a room can significantly influence sound, and taking these parameters into consideration can improve imersion in an augmented reality environment. 
  
@@ -22,6 +23,8 @@ The graphics card on the HoloLens, referred to as the Holographic Processing Uni
 
 ### Goals and Deliverables
 Our main goal is to implement a ray tracing algorithm for Microsoft Hololens that renders audio in real time at 60fps using the HPU on the device. An extra goal is to expand our above algorithm to also consider the effect of different materials on the sound. For instance stone vs wood vs glass surfaces.
+
+For our demo, we plan on having a live demo with the HoloLens including several Holographic sound sources. Additionally, because the full effect of our project will have more impact when comparing different rooms, we will also have a video showing the effects in rooms of different sizes and shapes. We will also include a graph comparing rendering times and frame rate to a sequential ray tracing algorithm
 
 ### Platform Choice
 * Microsoft HoloLens
