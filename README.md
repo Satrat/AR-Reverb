@@ -1,5 +1,11 @@
 ## Project Checkpoint
 
+### Progress
+We struggled to find the right approach for this project. There is not a lot of literature on best practices for Hololens development since the developer kits were only released last year, and a lot of the documentation is still in the process of being written, and most existing work is in Unity and C#.
+Our initial approach was to make the application entirely in C++. We have basic Hololens project that builds and can read in spatial mapping data, including building the mesh of the current surroundings. We also have a working raytracer provided by a student who completed Computer Graphics (15-462). Our hope was to adapt the raytracer to work with the Windows Holographic environment, then parallelize it to simulate how sound interacts with the environment. We do not have the two working together at the moment, and putting them together is proving difficult.
+Our next idea was to work in Unity and C# for the high level interaction with the Hololens and spatial mapping data, then write our sound processing as a C++ plugin for Unity. Unity compiles C++ plugins to machine code, so we should not see a significant decrease in throughput. We can currently read in the spatial mapping mesh and plan on using Unity's Physics.Raycast for our soundwaves.
+We also have begun writing the sound processing code. We implemented an output audio buffer using the PortAudio api, which allows us to process the spatial sound on its own thread, then output a sample along with every frame.
+
 ### Revised Schedule
 * Week 1: Interface with the HoloLens HPU
   * <s>Proof of concept for interfacing with the HPU</s>
