@@ -14,7 +14,7 @@ We also have begun writing the sound processing code. We implemented an output a
   * <s>Proof of concept for interfacing with the HPU</s>
   * <s>Write a simple pixel processing program that utilizes the HPU in order to gain familiarity with the hardware and how to access it </s>
 
-<i>We have been unsuccessful at accessing the HPU, as it seems to be proprietary to Microsoft and not available for 3rd party programs. The HoloLens contains a 1.04Ghz Intel Atom x5-Z8100 64-bit CPU running Intel HD Graphics, so we will be using this chip to parallelize over instead of the HPU(Holgraphic Processing Unit)</i>
+<i>We have been unsuccessful at accessing the HPU (Holgraphic Processing Unit), as it seems to be proprietary to Microsoft and not available for 3rd party programs. The HoloLens contains a 1.04Ghz Intel Atom x5-Z8100 64-bit CPU running Intel HD Graphics, so we will be using this chip to parallelize over instead of the HPU</i>
   
 * Week 2: Test Harness
   * Implement a sequential ray tracing algorithm
