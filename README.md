@@ -1,3 +1,41 @@
+## Project Checkpoint
+
+### Revised Schedule
+* Week 1: Interface with the HoloLens HPU
+  * <s>Proof of concept for interfacing with the HPU</s>
+  * <s>Write a simple pixel processing program that utilizes the HPU in order to gain familiarity with the hardware and how to access it </s>
+
+<i>We have been unsuccessful at accessing the HPU, as it seems to be proprietary to Microsoft and not available for 3rd party programs. The HoloLens contains a 1.04Ghz Intel Atom x5-Z8100 64-bit CPU running Intel HD Graphics, so we will be using this chip to parallelize over instead of the HPU(Holgraphic Processing Unit)</i>
+  
+* Week 2: Test Harness
+  * Implement a sequential ray tracing algorithm
+  * Implement gathering mesh data from rooms using HoloLens API
+  * <b>Record framerate and rendering time data for sequential implementation</b> (Incomplete)
+  * <b>Make a reference implementation to test correctness of our future parallel code</b> (Incomplete)
+  
+<i>We are using a working implementation of the ray tracing code from the Computer Graphics class as a baseline sequential reference from our code. This code will be modified to apply to sound(i.e, how much a ray of sound contributes to what the user hears as opposed to how much a ray of light contributes to the luminence of a pixel). We are using Unity and Visual Studio to program with the HoloLens API and have written code to gather real time mesh data from the room.</i>
+  
+<b>Modified Remaining Timeline</b>
+
+* Week 3: April 24-April 29
+  * Use DirectX Spatial Audio API to convert sound ray vectors to spatialized sound (Sara)
+  * Design data structure for storing audio ray results (Sara)
+  * Create base app for placing holograms and storing their sound output (Jonathan)
+  * Record framerate and rendering time data for sequential implementation (Jonathan)
+* Week 4: April 30 - May 6
+  * Parallelize across raytracer using barneshut-esque algorithm (Sara & Jonathan)
+  * Optimize for SIMD (Sara)
+  * Optimize for cahce locality (Jonathan)
+  * Try and maximize recursion depth to increase accuracy/detail of algorithm (Jonathan)
+  * Record framerate and rendering time data for graphs (Sara)
+  * Celebrate Sara's Birthday (EVERYONE)
+* Week 5: May 7-May 9
+  * Prepare demo materials
+    * make a video
+    * make a poster
+    * prepare graphs
+  * Finish testing and debugging
+
 ## Project Proposal
 
 ### Summary
