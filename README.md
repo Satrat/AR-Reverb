@@ -36,6 +36,11 @@
     * prepare graphs
   * Finish testing and debugging
 
+## Goals and Deliverables
+Our original goal was to use the HoloLens Holographic Processing Unit to implement a paralellized ray tracer for audio. Due to complications with accessing the HPU, we have decided to settle for using the CPU/GPU that is on the HoloLens(1.04Ghz Intel Atom x5-Z8100 running Intel HD Graphics) which is much less powerful. Our goal remains to be able to raytrace the audio in real time while maintaining 60fps but we have shifted our focus to CPU programming. Originally, we wanted our code to run as a background app on the HoloLens, but for the sake of time have decided to have our raytracer run as a full screen app where the user can place several holograms in the room and experience the effect of the ray tracer on their sound outputs.
+
+We will have a demo video of our app to present at the HoloLens competition. We also hope to have a live version, but the effects of our raytracer will not be as apparent unless the user has a good amount of space to roam around in. We will also present the graphs of our speedup compared to the sequential raytracer and our average framerates, as well as the maximum recursive depth of the rays and the maximum number of rays we are able to process while maintaining 60fps.
+
 ## Project Proposal
 
 ### Summary
