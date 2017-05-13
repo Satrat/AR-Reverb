@@ -3,6 +3,8 @@
 ## Summary
 We implemented an approximation of realistic spatial sound on the HoloLens, taking into account the topology of the space when calculating reverberation. We used Unity and C# to interface with the HoloLens, broke down the space into subsections that could be calculated independently of each other, and Mono’s SIMD library for parallelism. The HoloLens has an Intel Cherry Trail processor, which supports SIMD instructions, but not direct interactions with the GPU.
 
+**Video:** https://youtu.be/HtJZRteUPh0
+
 ## Background
 
 ## Approach
@@ -25,7 +27,9 @@ The main limit to our speedup was our reliance on the Unity API. In order to acc
 
 ## References
 [GSound](http://gamma.cs.unc.edu/GSOUND/gsound_aes41st.pdf)
+
 [iSound](http://gamma.cs.unc.edu/Sound/iSound/isound-tech_report.pdf)
+
 [Intel Geometric Sound Propogation](https://software.intel.com/sites/default/files/m/d/4/1/d/8/InteractiveGeometricSoundPropagationandRendering.pdf)
 
 ## Work Division
