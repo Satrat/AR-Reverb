@@ -1,8 +1,7 @@
 # Project Writeup
 
 ## Summary
- We implemented an approximation of realistic spatial sound on the HoloLens, taking into account the topology of the space when calculating reverberation. We used Unity and C# to interface with the HoloLens, broke down the space into subsections that could be calculated independently of each other, and Mono’s SIMD library for parallelism. The HoloLens has an Intel Cherry Trail processor, which supports SIMD instructions, but not direct interactions with the GPU.
-
+ We implemented a simulation of realistic spatial sound on the HoloLens, an augmented reality headset, that takes into account the topology of the environment when calculating reverberations. We used Unity and C# to interface with the HoloLens and broke down the virtual space into subsections that could be calculated independently of each other, and acheived parallelism using a a combination of multithreading and SIMD. In order to simulate the movement of sound waves around the room, we used a modified ray tracing alogirthm to create a virtual sound field in the environment. 
 **Video:** https://youtu.be/HtJZRteUPh0
 
 ## Background
