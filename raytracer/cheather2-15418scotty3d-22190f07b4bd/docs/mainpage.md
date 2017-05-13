@@ -1,2 +1,0 @@
-PathTracer                       {#mainpage}
-============
