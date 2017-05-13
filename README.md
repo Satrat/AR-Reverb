@@ -1,3 +1,38 @@
+# Project Writeup
+
+## Summary
+We implemented an approximation of realistic spatial sound on the HoloLens, taking into account the topology of the space when calculating reverberation. We used Unity and C# to interface with the HoloLens, broke down the space into subsections that could be calculated independently of each other, and Mono’s SIMD library for parallelism. The HoloLens has an Intel Cherry Trail processor, which supports SIMD instructions, but not direct interactions with the GPU.
+
+## Background
+
+## Approach
+
+## Results
+ The computation done by our raytracing algorithm occurred in two places: on the creation of a new sound object, and in the user position update function. Therefore when measuring performance we put timing markers at the beginning and end of these sections to calculate the time spent in each. Since our goal was to maintain a framerate of 60fps, our main goal was to limit the latency of user update function, which is called once per frame, to about 1ms. For testing our latency, we implemented a gesture recognizer in Unity that allowed the user to place sound objects in their environment with a tap. We performed tests with about 7 sound sources running at once, each emitting 75 rays with a maximum depth of 30. We did separate tests for both long(25 second) and short(5 second) sound sources. The hardware for all  tests was the 4 core Intel Atom processor on the HoloLens.
+ 
+ **graph 1 here **
+ 
+ The above graph represents the latency of initializing and raytracing a single sound source at various stages of our implementation, using the testing conditions described above. Note that we did not split up results between short and long clips, as the actual length of the clip does not influence this section of the algorithm. The baseline implementation was a sequential raytracer made using Unity’s built in Physics.Raycast() function. The quadrants implementation shows the speed up gained from sending rays only to the quadrant’s they intersect, calculated using Unity’s built in Bounds.Intersect() function. The final bar shows the latency obtained from replacing the built in intersect function with our own implementation that utilizes the Mono.Simd library to perform 4 wide vector calculations in order to determine the intersections for each ray. We ultimately were not able to achieve the desired 1ms latency for this function, however since it is only called when a new audio source is created it, it does not significantly affect the overall framerate.
+ 
+ **graph 2 here**
+ 
+ This second graph represents the amount of time spent processing the user moving through the sound field each frame. Since this function is being consistently called each frame, this is where the majority of execution is spent. The baseline implementation loops through all the rays and detects collisions with the user using the built in Physics.Raycast() function. The second set of bars represents the improvement from processing only the rays intersecting the user’s quadrant, and from cleverly deleting rays that are no longer audible. Finally, the multithreading bars represent the speedup obtained from replacing Unity’s Physics.Raycast() function with our own thread-safe implementation that made multithreading across 4 threads possible. Using the multithreaded approach, we were able to achieve a latency of about 1.1ms per frame, getting us just under our goal of 60 frames per second.
+ 
+ In the user update graph, there is a large difference between the performance on long and shorter sources. When using longer sound clips, there is a lot more overlap of ray sounds, which takes up a larger amount of the CPU’s resources for audio processing. The multithreaded implementation allows for collision detection calculations to be performed off of the main thread, so they are not affected by the strain of audio processing. For shorter clips, there is less overlap in the rays so the benefits of multithreading is minimal.
+
+The main limit to our speedup was our reliance on the Unity API. In order to access the mesh data on the HoloLens, we needed to use Unity built in functions, which are not thread safe. Because of this we were unable to parallelize our code by simply treating each raytrace as an independent event, since the rays are interacting with the mesh which can only be accessed sequentially. Starting audio could also only be done on the main thread, forcing us to preprocess collisions in parallel and then sequentially start sound each update frame. Furthermore, the Mono.Simd library, which is the only SIMD library that Unity supports, utilizes at most 4 byte wide vector instructions, while the Intel Atom on the Hololens has 12 execution contexts. We could have benefited from being able to use all of these execution contexts when calculating the intersections of rays with quadrants, as the data parallelism of the intersection calculations could have benefited from up to 16 execution contexts, one for each quadrant.
+ 
+
+## References
+[GSound](http://gamma.cs.unc.edu/GSOUND/gsound_aes41st.pdf)
+[iSound](http://gamma.cs.unc.edu/Sound/iSound/isound-tech_report.pdf)
+[Intel Geometric Sound Propogation](https://software.intel.com/sites/default/files/m/d/4/1/d/8/InteractiveGeometricSoundPropagationandRendering.pdf)
+
+## Work Division
+Equal work was done by both students
+
+***
+
 ## Project Checkpoint
 
 ### Progress
@@ -49,6 +84,8 @@ We also have begun writing the sound processing code. We implemented an output a
 Our original goal was to use the HoloLens Holographic Processing Unit to implement a paralellized ray tracer for audio. Due to complications with accessing the HPU, we have decided to settle for using the CPU/GPU that is on the HoloLens(1.04Ghz Intel Atom x5-Z8100 running Intel HD Graphics) which is much less powerful. Our goal remains to be able to raytrace the audio in real time while maintaining 60fps but we have shifted our focus to CPU programming. Originally, we wanted our code to run as a background app on the HoloLens, but for the sake of time have decided to have our raytracer run as a full screen app where the user can place several holograms in the room and experience the effect of the ray tracer on their sound outputs.
 
 We will have a demo video of our app to present at the HoloLens competition. We also hope to have a live version, but the effects of our raytracer will not be as apparent unless the user has a good amount of space to roam around in. We will also present the graphs of our speedup compared to the sequential raytracer and our average framerates, as well as the maximum recursive depth of the rays and the maximum number of rays we are able to process while maintaining 60fps.
+
+***
 
 ## Project Proposal
 
