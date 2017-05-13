@@ -6,7 +6,7 @@
  
 **Video:** https://youtu.be/HtJZRteUPh0
 
-**Github Repo: ** https://github.com/Satrat/Raytracing-Sound-in-3D-Space-Using-the-Microsoft-HoloLens
+**Github Repo:** https://github.com/Satrat/Raytracing-Sound-in-3D-Space-Using-the-Microsoft-HoloLens
 
 ## Background
  We performed a raycasting of soundwaves in order to create realistic reverberation and spatial sound that is able to run in real time on the Microsoft HoloLens while maintaining 60 frames per second. Exceeding 60 fps would cause rendering the holograms to lag, breaking immersion and defeating the purpose of the application. The HoloLens calculates a spatial map of the space it is in as well as the position of the user relative to the space.
