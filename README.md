@@ -4,9 +4,9 @@
  We implemented a simulation of realistic spatial sound on the HoloLens, an augmented reality headset, that takes into account the topology of the environment when calculating reverberations. The only hardware on the Hololens that is available to developers is a small Intel Atom CPU with 4 cores. We used Unity and C# to interface with the HoloLens and broke down the virtual space into subsections that could be calculated independently of each other, and acheived parallelism using a a combination of multithreading and SIMD. In order to simulate the movement of sound waves around the room, we used a modified ray tracing alogirthm to create a virtual sound field in the environment. 
  
  
-**Video:** https://youtu.be/HtJZRteUPh0
+ <b>Video:</b> <a href="https://youtu.be/HtJZRteUPh0"></a>
 
-**Github Repo:** https://github.com/Satrat/Raytracing-Sound-in-3D-Space-Using-the-Microsoft-HoloLens
+<b>Github Repo:</b> <a href="https://github.com/Satrat/Raytracing-Sound-in-3D-Space-Using-the-Microsoft-HoloLens"></a>
 
 ## Background
  We performed a raycasting of soundwaves in order to create realistic reverberation and spatial sound that is able to run in real time on the Microsoft HoloLens while maintaining 60 frames per second. Exceeding 60 fps would cause rendering the holograms to lag, breaking immersion and defeating the purpose of the application. The HoloLens calculates a spatial map of the space it is in as well as the position of the user relative to the space.
@@ -24,7 +24,7 @@
  
  When a new sound source is spawned, we use Unity’s Physics.Raycast to spawn 75 rays originating from the source and getting back where the sound rays collide with the walls of the room. On every collision, we spawn a new sound ray reflecting off the object it collided with and dampen the associated volume by a factor of 0.8. We allow this to continue up to our maximum recursion depth, which is set to 30 reflections. We then cache the results, since these will stay the same unless the mesh gets updated in a location that is relevant to the ray. This means that at steady state (once all the sound sources are placed and the room has been scanned), we won’t need to do any additional computation surrounding how the sound rays are created.
  
- ![source creation](https://github.com/Satrat/Raytracing-Sound-in-3D-Space-Using-the-Microsoft-HoloLens/blob/master/Images/soundField.png)
+ <img src = "https://github.com/Satrat/Raytracing-Sound-in-3D-Space-Using-the-Microsoft-HoloLens/blob/master/Images/soundField.png" alt = "sound field graphic">
  
  Whenever a ray crosses through a Quadrant, we add it to the Quadrant’s list of active rays, represented as an instance of the rayData class (defined below). On every frame, we check what Quadrant the user’s position is in and loop through its active rays to compute which rays come close enough to the user to be heard, eliminating the majority of the rays from the loop. When a sound has completed playing or time has elapsed past its source's endpoint, it is no longer active, so we can remove it from the Quadrant and destroy the ray.
  
